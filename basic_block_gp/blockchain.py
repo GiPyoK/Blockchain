@@ -16,7 +16,7 @@ class Blockchain(object):
 
     def new_block(self, proof, previous_hash=None):
         """
-        Create a new Block in the Blockchain
+        Create a new Block in the Blockchain 
 
         A block should have:
         * Index
