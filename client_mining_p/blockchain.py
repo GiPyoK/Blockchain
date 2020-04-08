@@ -140,11 +140,22 @@ def mine():
 
     # Check that 'proof' and 'id' are present
     if not data['proof'] or not data['id']:
-        return jsonify({'message': f"proof: {data['proof']}, id: {data['id']}"}), 400
+        response = {
+            'message': f"proof: {data['proof']}, id: {data['id']}"
+        }
+        return jsonify(response), 400
+
+    # check if the proof is valid
+    block_string = json.dumps(blockchain.last_block, sort_keys=True)
+    if not valid_proof(block_string, data['proof']):
+        response = {
+            'message': f"Proof: {data['proof']} is not valid!"
+        }
+        return jsonify(response), 400
 
     # Forge the new Block by adding it to the chain with the proof
     previous_hash = blockchain.hash(blockchain.last_block)
-    block = blockchain.new_block(data['proof'])
+    block = blockchain.new_block(data['proof']),previous_hash
 
     response = {
         # TODO: Send a JSON response with the new block
