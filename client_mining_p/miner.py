@@ -80,6 +80,6 @@ if __name__ == '__main__':
         message = data['message']
         if message == "New Block Forged":
             coin += 1
-            print(f"{message}, coins: {coin}")
+            print(f"{message}, coins: {coin}\n")
         else:
-            print(message)
+            print(f"Error: {message}\n")

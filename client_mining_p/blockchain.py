@@ -137,7 +137,7 @@ blockchain = Blockchain()
 def mine():
     # Pull data out of the POST
     data = request.get_json()
-
+    print(data)
     # Check that 'proof' and 'id' are present
     if not data['proof'] or not data['id']:
         response = {
@@ -147,7 +147,7 @@ def mine():
 
     # check if the proof is valid
     block_string = json.dumps(blockchain.last_block, sort_keys=True)
-    if not valid_proof(block_string, data['proof']):
+    if not blockchain.valid_proof(block_string, data['proof']):
         response = {
             'message': f"Proof: {data['proof']} is not valid!"
         }
@@ -155,10 +155,10 @@ def mine():
 
     # Forge the new Block by adding it to the chain with the proof
     previous_hash = blockchain.hash(blockchain.last_block)
-    block = blockchain.new_block(data['proof']),previous_hash
+    block = blockchain.new_block(data['proof'],previous_hash)
 
+    # TODO: Send a JSON response with the new block
     response = {
-        # TODO: Send a JSON response with the new block
         'message': "New Block Forged",
         'index': block['index'],
         'transactions': block['transactions'],
