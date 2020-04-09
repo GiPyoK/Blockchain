@@ -42,7 +42,8 @@ class Blockchain(object):
             'time': time(),
             'transactions': self.current_transactions,
             'proof': proof,
-            'previous_hash': previous_hash or self.hash(self.last_block)
+            'previous_hash': previous_hash or self.hash(self.last_block),
+            'hash': current_hash,
         }
 
         # Reset the current list of transactions
@@ -182,7 +183,7 @@ def new_transaction():
         return 'Missing values', 400
 
     index = blockchain.new_transaction(values['sender'],
-                                       values['recipient']
+                                       values['recipient'],
                                        values['amount'])
 
     response = {
