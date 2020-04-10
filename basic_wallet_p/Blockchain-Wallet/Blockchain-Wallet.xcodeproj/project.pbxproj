@@ -12,13 +12,12 @@
 		A68E606B243FBDFC0030C3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68E6069243FBDFC0030C3B7 /* Main.storyboard */; };
 		A68E606D243FBDFD0030C3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68E606C243FBDFD0030C3B7 /* Assets.xcassets */; };
 		A68E6070243FBDFD0030C3B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68E606E243FBDFD0030C3B7 /* LaunchScreen.storyboard */; };
-		A68E6079243FBF170030C3B7 /* 38864713494_7def2b6221_h.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A68E6078243FBF170030C3B7 /* 38864713494_7def2b6221_h.jpg */; };
-		A68E607B243FBFA70030C3B7 /* bitcoin-4851388_960_720.png in Resources */ = {isa = PBXBuildFile; fileRef = A68E607A243FBFA70030C3B7 /* bitcoin-4851388_960_720.png */; };
 		A68E607D243FC1970030C3B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E607C243FC1970030C3B7 /* User.swift */; };
 		A68E607F243FC2790030C3B7 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E607E243FC2790030C3B7 /* Transaction.swift */; };
 		A68E6081243FC2FF0030C3B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E6080243FC2FF0030C3B7 /* LoginViewController.swift */; };
 		A68E6086243FCBD70030C3B7 /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E6085243FCBD70030C3B7 /* TransactionController.swift */; };
 		A68E6089243FD7520030C3B7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E6088243FD7520030C3B7 /* MainViewController.swift */; };
+		A68E608B243FFBC00030C3B7 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E608A243FFBC00030C3B7 /* TransactionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +28,12 @@
 		A68E606C243FBDFD0030C3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A68E606F243FBDFD0030C3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A68E6071243FBDFD0030C3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A68E6078243FBF170030C3B7 /* 38864713494_7def2b6221_h.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 38864713494_7def2b6221_h.jpg; sourceTree = "<group>"; };
-		A68E607A243FBFA70030C3B7 /* bitcoin-4851388_960_720.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitcoin-4851388_960_720.png"; sourceTree = "<group>"; };
 		A68E607C243FC1970030C3B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A68E607E243FC2790030C3B7 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		A68E6080243FC2FF0030C3B7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A68E6085243FCBD70030C3B7 /* TransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
 		A68E6088243FD7520030C3B7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A68E608A243FFBC00030C3B7 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +66,6 @@
 		A68E6062243FBDFC0030C3B7 /* Blockchain-Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				A68E6077243FBED90030C3B7 /* Images */,
 				A68E6063243FBDFC0030C3B7 /* AppDelegate.swift */,
 				A68E6065243FBDFC0030C3B7 /* SceneDelegate.swift */,
 				A68E606C243FBDFD0030C3B7 /* Assets.xcassets */,
@@ -79,15 +76,6 @@
 				A68E6084243FC3240030C3B7 /* ViewControllers */,
 			);
 			path = "Blockchain-Wallet";
-			sourceTree = "<group>";
-		};
-		A68E6077243FBED90030C3B7 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				A68E607A243FBFA70030C3B7 /* bitcoin-4851388_960_720.png */,
-				A68E6078243FBF170030C3B7 /* 38864713494_7def2b6221_h.jpg */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		A68E6082243FC30B0030C3B7 /* Models */ = {
@@ -113,6 +101,7 @@
 			children = (
 				A68E6080243FC2FF0030C3B7 /* LoginViewController.swift */,
 				A68E6088243FD7520030C3B7 /* MainViewController.swift */,
+				A68E608A243FFBC00030C3B7 /* TransactionTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -186,8 +175,6 @@
 				A68E6070243FBDFD0030C3B7 /* LaunchScreen.storyboard in Resources */,
 				A68E606D243FBDFD0030C3B7 /* Assets.xcassets in Resources */,
 				A68E606B243FBDFC0030C3B7 /* Main.storyboard in Resources */,
-				A68E6079243FBF170030C3B7 /* 38864713494_7def2b6221_h.jpg in Resources */,
-				A68E607B243FBFA70030C3B7 /* bitcoin-4851388_960_720.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +187,7 @@
 			files = (
 				A68E6089243FD7520030C3B7 /* MainViewController.swift in Sources */,
 				A68E607D243FC1970030C3B7 /* User.swift in Sources */,
+				A68E608B243FFBC00030C3B7 /* TransactionTableViewCell.swift in Sources */,
 				A68E6064243FBDFC0030C3B7 /* AppDelegate.swift in Sources */,
 				A68E6086243FCBD70030C3B7 /* TransactionController.swift in Sources */,
 				A68E6066243FBDFC0030C3B7 /* SceneDelegate.swift in Sources */,

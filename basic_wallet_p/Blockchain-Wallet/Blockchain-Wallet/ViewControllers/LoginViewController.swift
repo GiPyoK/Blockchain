@@ -26,15 +26,6 @@ class LoginViewController: UIViewController {
         if let id = idTextField.text, !id.isEmpty {
             idTextField.layer.borderColor = UIColor.systemGray.cgColor
             user = User(id: id, balance: 0, transactions: [])
-            
-            transactionController.getFullChain { (error) in
-                if let error = error {
-                    print(error)
-                }
-                
-                self.transactionController.getUserTransaction(user: &self.user!)
-            }
-            
             performSegue(withIdentifier: "LoginSegue", sender: self)
         } else {
             idTextField.layer.borderColor = UIColor.systemRed.cgColor

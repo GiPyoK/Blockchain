@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct Chain: Codable {
+    let chain: [Block]
+}
+
 struct Block: Codable {
     let transactions: [Transaction]
 }

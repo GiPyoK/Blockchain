@@ -64,36 +64,37 @@ class TransactionController {
             
             // Decode full chain json
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    if let chain = json["chain"] as? [Block] {
-                        for block in chain {
-                            let serverTransactions = block.transactions
-                            for transaction in serverTransactions{
-                                self.transactions.append(transaction)
-                            }
-                        }
+                let chain = try JSONDecoder().decode(Chain.self, from: data)
+                let blocks = chain.chain
+                self.transactions = []
+                for block in blocks {
+                    let serverTransactions = block.transactions
+                    for transaction in serverTransactions{
+                        self.transactions.append(transaction)
                     }
-                    completion(nil)
-                    return
                 }
+                completion(nil)
+                return
             } catch {
+                print(error)
                 print("Could not decode json")
                 completion(.badDecode)
             }
-        }
+        }.resume()
     }
     
-    func getUserTransaction(user: inout User) {
-        let userID = user.id.trimmingCharacters(in: .newlines)
-        
-        for transaction in transactions {
+    func getUserTransaction(userID: String) -> [Transaction] {
+        let userID = userID.trimmingCharacters(in: .newlines)
+        var transactions: [Transaction] = []
+        for transaction in self.transactions {
             if transaction.sender == userID || transaction.recipient == userID {
-                user.transactions.append(transaction)
+                transactions.append(transaction)
             }
         }
+        return transactions
     }
     
-    func calculateUserBalance(user: inout User) {
+    func calculateUserBalance(user: User) -> Float {
         let userID = user.id.trimmingCharacters(in: .newlines)
         
         var sentAmount: Float = 0
@@ -107,6 +108,6 @@ class TransactionController {
             }
         }
         
-        user.balance = receivedAmount - sentAmount
+        return receivedAmount - sentAmount
     }
 }
